@@ -79,9 +79,9 @@ def lambda_handler(event, context):
         count = len(messages)
         instance_s = "instance" if count == 1 else "instances"
         subject = f"Alert: {count} running EC2 {instance_s}"
-        final_message = "These are running:\n"
+        final_message = "These are running:"
         for i, line in enumerate(messages):
-            final_message += f"{i + 1}) {line}"
+            final_message += f"\n{i + 1}) {line}"
         print(subject)
         print(final_message)
         sns.publish(
